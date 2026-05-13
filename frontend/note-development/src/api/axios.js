@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let apiUrl = import.meta.env.VITE_API_URL;
+let apiUrl = import.meta.env.VITE_API_URL || "https://realtime-ai-notes.onrender.com/api";
 if (apiUrl && apiUrl.includes("localhost")) {
   apiUrl = apiUrl.replace("localhost", window.location.hostname);
 }
