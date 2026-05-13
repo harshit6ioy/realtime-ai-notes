@@ -12,11 +12,7 @@ const connectDB = require("./config/db");
 // MIDDLEWARES
 app.use(express.json());
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://realtime-ai-notes.vercel.app",
-    process.env.CLIENT_URL
-  ].filter(Boolean),
+  origin: true,
   credentials: true
 }));
 

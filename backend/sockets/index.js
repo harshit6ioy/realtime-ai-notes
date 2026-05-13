@@ -5,11 +5,7 @@ let io;
 const initSocket = (server) => {
   io = new Server(server, {
     cors: {
-      origin: [
-        "http://localhost:5173",
-        "https://realtime-ai-notes.vercel.app",
-        process.env.CLIENT_URL
-      ].filter(Boolean),
+      origin: true,
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true
     },

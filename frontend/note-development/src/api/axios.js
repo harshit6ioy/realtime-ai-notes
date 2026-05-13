@@ -1,7 +1,12 @@
 import axios from "axios";
 
+let apiUrl = import.meta.env.VITE_API_URL;
+if (apiUrl && apiUrl.includes("localhost")) {
+  apiUrl = apiUrl.replace("localhost", window.location.hostname);
+}
+
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: apiUrl,
 });
 
 API.interceptors.request.use((req) => {

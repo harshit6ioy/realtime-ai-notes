@@ -11,7 +11,10 @@ function Dashboard() {
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
-  const API_URL = import.meta.env.VITE_API_URL;
+  let API_URL = import.meta.env.VITE_API_URL;
+  if (API_URL && API_URL.includes("localhost")) {
+    API_URL = API_URL.replace("localhost", window.location.hostname);
+  }
 
   const stripMarkdown = (text) => {
     if (!text) return "";
